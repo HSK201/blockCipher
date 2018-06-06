@@ -24,94 +24,49 @@ public class BlockCipher {
 		
 		String encryptMsg = "";
 		
+		char[] normAlpha = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+		int index = 0;
+		
 		if(shiftNum == 1) {
-			for(int i = 0; i<Text.length() ; i ++) {
-				if(msg[i] == 'A')
-					encryptMsg += 'B';
-				
-				else if(msg[i] == 'B')
-					encryptMsg += 'C';
-				
-				else if(msg[i] == 'C')
-					encryptMsg += 'D';
-				
-				else if(msg[i] == 'D')
-					encryptMsg += 'E';
-				
-				else if(msg[i] == 'E')
-					encryptMsg += 'F';
-				
-				else if(msg[i] == 'F')
-					encryptMsg += 'G';
-				
-				else if(msg[i] == 'G')
-					encryptMsg += 'H';
-				
-				else if(msg[i] == 'H')
-					encryptMsg += 'I';
-				
-				else if(msg[i] == 'I')
-					encryptMsg += 'J';
-				
-				else if(msg[i] == 'J')
-					encryptMsg += 'K';
-				
-				else if(msg[i] == 'K')
-					encryptMsg += 'L';
-				
-				else if(msg[i] == 'L')
-					encryptMsg += 'M';
-				
-				else if(msg[i] == 'M')
-					encryptMsg += 'N';
-				
-				else if(msg[i] == 'N')
-					encryptMsg += 'O';
-				
-				else if(msg[i] == 'O')
-					encryptMsg += 'P';
-				
-				else if(msg[i] == 'P')
-					encryptMsg += 'Q';
-				
-				else if(msg[i] == 'Q')
-					encryptMsg += 'R';
-				
-				else if(msg[i] == 'R')
-					encryptMsg += 'S';
-				
-				else if(msg[i] == 'S')
-					encryptMsg += 'T';
-				
-				else if(msg[i] == 'T')
-					encryptMsg += 'U';
-				
-				else if(msg[i] == 'U')
-					encryptMsg += 'V';
-				
-				else if(msg[i] == 'V')
-					encryptMsg += 'W';
-				
-				else if(msg[i] == 'W')
-					encryptMsg += 'X';
-				
-				else if(msg[i] == 'X')
-					encryptMsg += 'Y';
-				
-				else if(msg[i] == 'Y')
-					encryptMsg += 'Z';
+			for(int i = 0; i < msg.length; i++) {
+				for(int j = 0; j < normAlpha.length; j++) {
+					if( msg[i] == normAlpha[j] ) {
+					index = j;
+					index +=1;
+					encryptMsg += normAlpha[index];
+					}
+				}
 			}
 		}
 		
-		/*
-		else if(shiftNum == 2) {}
-		else if(shiftNum == 3) {}
-		*/
+		
+		else if(shiftNum == 2) {
+			for(int i = 0; i < msg.length; i++) {
+				for(int j = 0; j < normAlpha.length; j++) {
+					if( msg[i] == normAlpha[j] ) {
+					index = j;
+					index +=2;
+					encryptMsg += normAlpha[index];
+					}
+				}
+			}
+		}
+		else if(shiftNum == 3) {
+			for(int i = 0; i < msg.length; i++) {
+				for(int j = 0; j < normAlpha.length; j++) {
+					if( msg[i] == normAlpha[j] ) {
+					index = j;
+					index +=3;
+					encryptMsg += normAlpha[index];
+					}
+				}
+			}
+		}
+		
 		
 		else System.out.println("The number entered unavailable");
 		
 		/* alphabetical array
-		char[] normAlpha = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 		char[] oneShiftAlpha = {'Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y'};
 		char[] twoShiftAlpha = {'Y','Z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X'};
 		*/
